@@ -1,0 +1,57 @@
+body {
+    background-color: #f1f1f1;
+    font-family: "Open Sans", sans-serif;
+    font-size: 24pt;
+    line-height: 1.2em;
+}
+
+.ui.piled.segment {
+    box-shadow: 0 0 10px #aaa;
+}
+
+#posts img {
+    margin: 1em auto;
+    display: block;
+    cursor: zoom-in;
+}
+
+#posts .chat {
+    text-align: left;
+    font-size: 1.3em;
+    line-height: 1.5em;
+}
+
+#posts .chat li {
+    list-style: none;
+}
+
+#posts .chat .odd .icon {
+    color: deepskyblue;
+}
+
+#posts .text {
+    text-align: left;
+}
+
+a, a label {
+    color: #017700 !important;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover, a:hover label {
+    color: deeppink !important;
+    text-decoration: underline;
+}
+
+a:visited, a:active, a:visited label, a:active label {
+    opacity: 0.8;
+}
+
+#posts .link {
+    font-size: 1.6em;
+}
+
+#image-modal img {
+    width: 100%;
+}

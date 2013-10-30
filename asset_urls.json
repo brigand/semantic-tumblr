@@ -1,0 +1,13 @@
+{
+    "css 0.7.0": "http://static.tumblr.com/kexuegc/kcFmvgfxs/semantic.min.css",
+    "fonts": {
+        "basic.icons.eot": "/404",
+        "basic.icons.svg": "",
+        "basic.icons.ttf": "http://static.tumblr.com/kexuegc/418mvgjo2/basic.icons.ttf",
+        "basic.icons.woff": "http://static.tumblr.com/kexuegc/ecUmvgjnp/basic.icons.woff",
+        "icons.eot": "/404",
+        "icons.otf": "http://static.tumblr.com/kexuegc/MUKmvgjm3/icons.otf",
+        "icons.woff": "http://static.tumblr.com/kexuegc/0Qbmvgjlj/icons.woff",
+        "icons.tiff": "http://static.tumblr.com/kexuegc/Li5mvgjkm/icons.ttf"
+    }
+}

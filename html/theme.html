@@ -1,0 +1,64 @@
+<html>
+<head>
+    <title>{Title}</title>
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    {block:Description}
+    <meta name="description" content="{MetaDescription}"/>
+    {/block:Description}
+
+    include "fragments/meta.html"
+
+    <link rel="stylesheet" href="http://static.tumblr.com/kexuegc/R15mvgk5s/semantic.css"/>
+    <style type="text/css">
+        include "../css/glue.css"
+    </style>
+</head>
+<body>
+
+<header class="ui segment">
+    <h2 class="center aligned ui header">
+        {Title}
+        <div class="sub header">{Description}</div>
+    </h2>
+    <a href="/archive">Archive</a>
+</header>
+
+<div class="center aligned ui one column page grid" role="main">
+    <div id="posts" class="column">
+        {block:Posts}
+        include "posts/text.html"
+        include "posts/photo.html"
+        include "posts/chat.html"
+        include "posts/panorama.html"
+        include "posts/photoset.html"
+        include "posts/quote.html"
+        include "posts/link.html"
+        include "posts/audio.html"
+        include "posts/video.html"
+
+        include "fragments/post_buttons.html"
+
+        include "fragments/tags.html"
+        {/block:Posts}
+    </div>
+</div>
+<footer id="footer">
+    {block:PreviousPage}
+    <a href="{PreviousPage}">&#171; Previous</a>
+    {/block:PreviousPage}
+
+    {block:NextPage}
+    <a href="{NextPage}">Next &#187;</a>
+    {/block:NextPage}
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://static.tumblr.com/kexuegc/PMVmvgof1/semantic.min.js"></script>
+
+include "fragments/image_modal.html"
+
+<script type="text/javascript" src="http://codysherman.tumblr.com/tools/infinite-scrolling/code"></script>
+</body>
+
+</html>

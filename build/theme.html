@@ -1,0 +1,251 @@
+<!-- Semantic-UI Tumblr Theme ! -->
+<html>
+<head>
+    <title>{Title}</title>
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    {block:Description}
+    <meta name="description" content="{MetaDescription}"/>
+    {/block:Description}
+
+    <meta name="if:Click Images for Large View" content="1"/>
+
+    <link rel="stylesheet" href="http://static.tumblr.com/kexuegc/R15mvgk5s/semantic.css"/>
+    <style type="text/css">
+        body {
+            background-color: #f1f1f1;
+            font-family: "Open Sans", sans-serif;
+            font-size: 24pt;
+            line-height: 1.2em;
+        }
+
+        .ui.piled.segment {
+            box-shadow: 0 0 10px #aaa;
+        }
+
+        #posts img {
+            margin: 1em auto;
+            display: block;
+            cursor: zoom-in;
+        }
+
+        #posts .chat {
+            text-align: left;
+            font-size: 1.3em;
+            line-height: 1.5em;
+        }
+
+        #posts .chat li {
+            list-style: none;
+        }
+
+        #posts .chat .odd .icon {
+            color: deepskyblue;
+        }
+
+        #posts .text {
+            text-align: left;
+        }
+
+        a, a label {
+            color: #017700 !important;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        a:hover, a:hover label {
+            color: deeppink !important;
+            text-decoration: underline;
+        }
+
+        a:visited, a:active, a:visited label, a:active label {
+            opacity: 0.8;
+        }
+
+        #posts .link {
+            font-size: 1.6em;
+        }
+
+        #image-modal img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header class="ui segment">
+    <h2 class="center aligned ui header">
+        {Title}
+        <div class="sub header">{Description}</div>
+    </h2>
+    <a href="/archive">Archive</a>
+</header>
+
+<div class="center aligned ui one column page grid" role="main">
+    <div id="posts" class="column">
+        {block:Posts}
+        {block:Text}
+        <article class="ui piled segment text">
+            {block:Title}
+            <h3><a href="{Permalink}">{Title}</a></h3>
+            {/block:Title}
+
+            {Body}
+        </article>
+        {/block:Text}
+        {block:Photo}
+        <article class="ui piled segment">
+            <img src="{PhotoURL-500}" alt="{PhotoAlt}" class="ui rounded image"/>
+
+            <div class="ui bottom attached message">
+                {block:Caption}
+                <div class="caption">{Caption}</div>
+                {/block:Caption}
+            </div>
+        </article>
+        {/block:Photo}
+
+        {block:Chat}
+        <article class="ui piled segment">
+            {block:Title}
+            <h3><a href="{Permalink}">{Title}</a></h3>
+            {/block:Title}
+
+            <ul class="chat">
+                {block:Lines}
+                <li class="{Alt} user_{UserNumber}">
+                    {block:Label}
+                    <span class="label"><i class="user icon"></i> {Label}</span>
+                    {/block:Label}
+
+                    {Line}
+                </li>
+                {/block:Lines}
+            </ul>
+        </article>
+        {/block:Chat}
+
+        {block:Panorama}
+        <article class="ui piled segment">
+            {LinkOpenTag}
+            <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+            {LinkCloseTag}
+
+            {block:Caption}
+            <div class="caption">{Caption}</div>
+            {/block:Caption}
+        </article>
+        {/block:Panorama}
+
+        {block:Photoset}
+        <article class="ui piled segment">
+            {Photoset-500}
+
+            {block:Caption}
+            <div class="caption">{Caption}</div>
+            {/block:Caption}
+        </article>
+        {/block:Photoset}
+
+        {block:Quote}
+        <article class="ui piled segment">
+            "{Quote}"
+
+            {block:Source}
+            <div class="source">{Source}</div>
+            {/block:Source}
+        </article>
+        {/block:Quote}
+        {block:Link}
+        <article class="ui piled segment link">
+            <a href="{URL}" class="link" {Target}>{Name}</a>
+
+            {block:Description}
+            <div class="description">{Description}</div>
+            {/block:Description}
+        </article>
+        {/block:Link}
+        {block:Audio}
+        <article class="ui piled segment">
+            {AudioPlayerBlack}
+
+            {block:Caption}
+            <div class="caption">{Caption}</div>
+            {/block:Caption}
+        </article>
+        {/block:Audio}
+
+        {block:Video}
+        <article class="ui piled segment">
+            {Video-500}
+
+            {block:Caption}
+            <div class="caption">{Caption}</div>
+            {/block:Caption}
+        </article>
+        {/block:Video}
+
+
+        {block:HasTags}
+        <div class="tags">
+            {block:Tags}
+            <a href="{TagURL}">
+                <label class="ui label">{Tag}</label>
+            </a>
+            {/block:Tags}
+        </div>
+        {/block:HasTags}
+        {/block:Posts}
+    </div>
+</div>
+<footer id="footer">
+    {block:PreviousPage}
+    <a href="{PreviousPage}">&#171; Previous</a>
+    {/block:PreviousPage}
+
+    {block:NextPage}
+    <a href="{NextPage}">Next &#187;</a>
+    {/block:NextPage}
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://static.tumblr.com/kexuegc/PMVmvgof1/semantic.min.js"></script>
+
+{block:IfClickImagesforLargeView}
+<div class="ui modal" id="image-modal">
+    <i class="close icon"></i>
+
+    <div class="content">
+
+    </div>
+</div>
+
+<script>
+    (function () {
+        var $img_modal = $('#image-modal');
+        var $content = $img_modal.find('.content');
+
+        $(document).on('click', 'img', function () {
+            var $img = $(this);
+
+            // check if the image is inside a link
+            // if so, just let the link do its thing
+            if ( $img.parents('a').length ) {
+                return;
+            }
+
+            $content.empty();
+            $content.append($img.clone()[0]);
+            $img_modal.modal('show');
+            return false;
+        });
+    }).call(this);
+</script>
+{/block:IfClickImagesforLargeView}
+
+
+
+<script type="text/javascript" src="http://codysherman.tumblr.com/tools/infinite-scrolling/code"></script>
+</body>
+
+</html>
